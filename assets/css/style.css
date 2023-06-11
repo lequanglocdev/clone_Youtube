@@ -6,6 +6,7 @@
     --text-color:#333;
     --header-height:56px;
     --width-slider-bar: 240px;
+    
 }
 
 *{
@@ -92,6 +93,14 @@ ul{
 .slider__item img{
     width: 20px;
     margin: 0 24px;
+    border-radius: 50%;
+}
+.slider__content-third{
+    position: relative;
+}
+.slider__item-icon-sound{
+    position: absolute;
+    right: 0;
 }
 .slider__content-third-title{
     color: var(--text-color);
@@ -130,29 +139,111 @@ ul{
     align-items: center;
 }
 .center__search{
+    position: relative;
     width: 500px;
     border:1px solid #d3d3d3;
     padding: 8px 12px;
     border-radius:40px 0 0 40px;
 }
 .center__search input{
-    width: 95%;
+    width: 450px;
     border: none;
     outline: none;
     background: transparent;
-    padding: 0 20px;
+    padding: 0 10px;
     font-size: 1.6rem;
+}
+.input__search-history{
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 500px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    box-shadow:0 1px 5px rgb(189 189 189);
+    padding: 0 16px;
+    border-radius: 6px;
+    display: none;
+    z-index: 1;
+}
+
+.input__search-history-item{
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+}
+.input__search-history-icon{
+    margin-right: 16px;
+}
+.input__search-history-title a{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.input__search-history-delete{
+    position: absolute;
+    right: 8px;
+
+}
+.input__search-history-delete a{
+    font-size: 1.4rem;
+    color: #36c;
+    text-decoration: none;
+    cursor: pointer;
+}
+.input__search:focus ~ .input__search-history{
+    display: block;
+}
+
+
+.center__search i{
+    font-size: 1.5rem;
+    margin-left: 4px;
+    cursor: pointer;
 }
 .center_btt{
     width: 80px;
     cursor: pointer;
 }
 .btn__search{
+    position: relative;
     padding: 8px 12px;
-    border: 1px solid #d3d3d3;
+    border: 1px solid #ebe6e6;
     border-radius: 0 40px 40px 0;
     margin-right:25px ;
 }
+.btn__search-notify{
+    position: absolute;
+    width: 100px;
+    padding: 4px;
+    background-color: var(--main-color);
+    border-radius: 4px;
+    display: none;
+}
+.btn__search-notify p ,
+.voice__icon-notify p{
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--white-color);
+}
+.center_btt:hover .btn__search-notify,
+.center_voice:hover .voice__icon-notify{
+    display: block;
+}
+.center_voice{
+    position: relative;
+}
+.voice__icon-notify{
+    position: absolute;
+    width: 150px;
+    top: 27px;
+    left: -50px;
+    padding: 4px 0 4px 4px;
+    background-color: var(--main-color);
+    border-radius: 4px;
+    display: none;
+}
+
 .voice__icon i,
 .btn__search i{
     font-size: 2rem;
@@ -163,23 +254,177 @@ ul{
     display: flex;
     align-items: center;
 }
+.right__creatVideo{
+    position: relative;
+    
+}
+.createVideo__modal{
+    position: absolute;
+    top: calc(100% + 2px);
+    right: 0;
+    width: 185px;
+    padding: 10px 0;
+    background-color: var(--white-color);
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    display: none;
+    z-index: 10;
+}
 
+.createVideo__modal-item{
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+.createVideo__modal-item-des{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin: 0 0 0 24px;
+}
+.open__CreateVideo{
+    display: block;
+}
 .right__notifi{
     padding: 8px 8px;
     margin: 0 10px;
 }
+.notifi__icon{
+    position: relative;
+}
 .notifi__icon i{
     font-size: 2rem;
 }
-.right__user{
-    width: 32px;
-}
+
 .img__user img{
     width: 100%;
     border-radius: 100%;
 }
 .right__creatVideo,
-.right__notifi,
-.right__user{
+.right__notifi{
     cursor: pointer;
+}
+.notifi__modal{
+    position: absolute;
+    top: 10px;
+    width: 480px;
+    background-color:var(--white-color);
+    transform: translateX(-102%);
+    border: 1px solid #d3d3d3;
+    z-index: 1000;
+    display: none;
+}
+.notifi__modal-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.notifi__modal-heading-title,
+.notifi__modal-heading-icon{
+    font-size: 1.6rem;
+    color: var(--main-color);
+    font-weight: 400;
+}
+.notifi__modal-container{
+    padding: 10px 20px;
+    overflow-y: scroll;
+}
+.notifi__modal-container-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+.notifi__modal-container-logo img{
+    width: 48px;
+    border-radius: 50%;
+}
+.notifi__modal-container-content p{
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    max-width: 200px;
+    margin: 0;
+}
+.notifi__modal-container-content span{
+    color: var(--text-color);
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 10px;
+}
+.notifi__modal-container-chanel img{
+    width: 100px;
+}
+.open__notifi{
+    display: block;
+}
+.right__user{
+    position: relative;
+    width: 32px;
+    margin-right: 20px;
+    
+}
+.user__modal{
+    position: absolute;
+    top: 0;
+    right: 34px;
+    width: 310px;
+    max-height:400px ;
+    background-color:var(--white-color);
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    display: none;
+    z-index: 9999;
+}
+.user__modal-heading{
+    display: flex;
+    align-items: center;
+    padding: 10px 18px;
+}
+.user__modal-heading-avata{
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+.heading-profile-name{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text-color);
+
+}
+.heading-profile-email{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 6px 0;
+}
+.heading-profile-description{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #36c;
+}
+.user__modal-heading::after{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    top: 90px;
+    left: 0;
+    height: 1px;
+    background-color: #dadada;
+}
+
+.user__modal-container-item{
+    display: flex;
+    align-items: center;
+}
+.user__modal-container-left img{
+    padding: 10px;
+}
+.user__modal-container-center{
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+.open__user{
+    display: block;
 }
